@@ -17,3 +17,5 @@ pip install MinecraftMotionTools
 ```
 # How to use?
 Check some of the code examples for common uses.
+
+Default functions' parameters are set for Falling Blocks and similar.
