@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: MinecraftMotionTools
-Version: 1.0
+Version: 1.2
 Summary: A library to calculate entities' motion in Minecraft.
 Author: OrHy3
 Project-URL: Homepage, https://github.com/OrHy3/MinecraftMotionTools
