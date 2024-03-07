@@ -8,6 +8,8 @@ Minecraft's Wiki got [some information](https://minecraft.wiki/w/Entity#Motion_o
 Another complication comes from what I, in the functions' arguments, refer to as [slowed down position](https://minecraft.wiki/w/Entity#cite_note-gravityBefore-4), which required forking the formulas for every different case.
 
 Finally, [here](https://hackmd.io/V9oMODQbT5mBA-o4OM76pA) is the formulas' sheet I wrote down. Take in mind that a fair amount of them make use of [Lambert's W function](https://en.wikipedia.org/wiki/Lambert_W_function).
+
+If you don't know what parameters to set for a specific entity, check them on the [wiki's page](https://minecraft.wiki/w/Entity#Motion_of_entities) as well.
 # How to install?
 Install Python 3 and pip, then run
 ```
