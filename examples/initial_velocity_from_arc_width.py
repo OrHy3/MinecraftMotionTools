@@ -2,7 +2,7 @@
 
 import minecraft_motion_tools as mmt
 
-width = print('Insert arc\'s width: ')
+width = float(input('Insert arc\'s width: '))
 t = float(input('Time taken in seconds: ')) * 20
 
 if t == 0:
