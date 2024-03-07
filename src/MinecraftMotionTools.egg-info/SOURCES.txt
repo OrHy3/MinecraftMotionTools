@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/MinecraftMotionTools.egg-info/PKG-INFO
+src/MinecraftMotionTools.egg-info/SOURCES.txt
+src/MinecraftMotionTools.egg-info/dependency_links.txt
+src/MinecraftMotionTools.egg-info/requires.txt
+src/MinecraftMotionTools.egg-info/top_level.txt
+src/minecraft_motion_tools/__init__.py
+src/minecraft_motion_tools/mmt.py
