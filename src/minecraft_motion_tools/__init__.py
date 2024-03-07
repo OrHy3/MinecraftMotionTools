@@ -1,1 +1,1 @@
-from mmt import *
+from minecraft_motion_tools.mmt import *
