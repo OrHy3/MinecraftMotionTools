@@ -8,7 +8,8 @@ def check_values(a, d):
     a: acceleration
     d: drag force
     '''
-    return d >= 0 and d < 1 and a >= 0
+    if d < 0 or d >= 1 or a < 0:
+        raise ValueError('Inappropriate parameters (see help(check_values))')
 
 def v_from_t(v0: float, t: float, a=0.04, d=0.02, after=True):
     '''
@@ -22,8 +23,7 @@ def v_from_t(v0: float, t: float, a=0.04, d=0.02, after=True):
     d: drag force
     after: whether drag is applied after or before gravity acceleration
     '''
-    if not check_values(a, d):
-        raise ValueError('Inappropriate parameters (look help(check_values))')
+    check_values(a, d)
     if d == 0:
         return v0 - a * t
     if after:
@@ -43,8 +43,7 @@ def p_from_t(v0: float, t: float, a=0.04, d=0.02, after=True, k=1):
     after: whether drag is applied after or before gravity acceleration
     k: acceleration drag coefficient
     '''
-    if not check_values(a, d):
-        raise ValueError('Inappropriate parameters (look help(check_values))')
+    check_values(a, d)
     if d == 0:
         return (v0 + (0.5 - 0.5 * t - k) * a) * t
     if after:
@@ -67,12 +66,11 @@ def max_height_tick_from_v0(v0: float, a=0.04, d=0.02, after=True, k=1):
     after: whether drag is applied after or before gravity acceleration
     k: acceleration drag coefficient
     '''
+    check_values(a, d)
     if d == 0:
         if a == 0:
             return None
         return v0 / a - k
-    if not check_values(a, d):
-        raise ValueError('Inappropriate parameters (look help(check_values))')
     if after:
         a *= 1 - d
         k /= 1 - d
@@ -102,8 +100,7 @@ def max_height_from_v0(v0: float, a=0.04, d=0.02, after=True, k=1):
     after: whether drag is applied after or before gravity acceleration
     k: acceleration drag coefficient
     '''
-    if not check_values(a, d):
-        raise ValueError('Inappropriate parameters (look help(check_values))')
+    check_values(a, d)
     if a == 0:
         if d == 0:
             return None
@@ -131,8 +128,9 @@ def v0_from_max_height(h: float, a=0.04, d=0.02, after=True, k=1):
     after: whether drag is applied after or before gravity acceleration
     k: acceleration drag coefficient
     '''
-    if not check_values(a, d) or h <= 0:
-        raise ValueError('Inappropriate parameters (look help(check_values))')
+    check_values(a, d)
+    if h <= 0:
+        raise ValueError('Maximum height must be greater than 0')
     if a == 0:
         if d == 0:
             return None
@@ -178,8 +176,7 @@ def v0_from_v_t(v: float, t: float, a=0.04, d=0.02, after=True):
     d: drag force
     after: whether drag is applied after or before gravity acceleration
     '''
-    if not check_values(a, d):
-        raise ValueError('Inappropriate parameters (look help(check_values))')
+    check_values(a, d)
     if d == 0:
         return v + t * a
     if after:
@@ -201,8 +198,7 @@ def v0_from_p_t(p: float, t: float, a=0.04, d=0.02, after=True, k=1):
     after: whether drag is applied after or before gravity acceleration
     k: acceleration drag coefficient
     '''
-    if not check_values(a, d):
-        raise ValueError('Inappropriate parameters (look help(check_values))')
+    check_values(a, d)
     if t == 0:
         return None
     if d == 0:
@@ -226,8 +222,7 @@ def t_from_v0_v(v0: float, v: float, a=0.04, d=0.02, after=True):
     d: drag force
     after: whether drag is applied after or before gravity acceleration
     '''
-    if not check_values(a, d):
-        raise ValueError('Inappropriate parameters (look help(check_values))')
+    check_values(a, d)
     if d == 0:
         if a == 0:
             return None
@@ -257,8 +252,7 @@ def t_from_v0_p(v0: float, p: float, a=0.04, d=0.02, after=True, k=1):
     after: whether drag is applied after or before gravity acceleration
     k: acceleration drag coefficient
     '''
-    if not check_values(a, d):
-        raise ValueError('Inappropriate parameters (see help(check_values))')
+    check_values(a, d)
     if d == 0:
         if a == 0:
             return None
@@ -308,8 +302,7 @@ def v0_t_from_v_p(v: float, p: float, a=0.04, d=0.02, after=True, k=1):
     after: whether drag is applied after or before gravity acceleration
     k: acceleration drag coefficient
     '''
-    if not check_values(a, d):
-        raise ValueError('Inappropriate parameters (look help(check_values))')
+    check_values(a, d)
     if d == 0:
         if a == 0:
             if v == 0:
