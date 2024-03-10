@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "MinecraftMotionTools"
-version = "1.4"
+version = "1.5"
 authors = [
 	{name="OrHy3"}
 ]
-description = "A library to calculate entities' motion in Minecraft."
+description = "A library to compute entities' motion in Minecraft."
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = ["scipy>=1.12.0"]

@@ -12,9 +12,9 @@ if t == 0:
     exit()
 
 motion = [
-    mmt.v0_from_p_t(x, t, a=0, slowed_pos=False),
-    mmt.v0_from_p_t(y, t, a=0.08, slowed_pos=False),
-    mmt.v0_from_p_t(z, t, a=0, slowed_pos=False)
+    mmt.v0_from_p_t(x, t, a=0, d=0.0899999737739563, k=0),
+    mmt.v0_from_p_t(y, t, a=0.08, d=0.019999980926513672, k=0),
+    mmt.v0_from_p_t(z, t, a=0, d=0.0899999737739563, k=0)
 ]
 
 print(f'Motion tag: [{motion[0]}d, {motion[1]}d, {motion[2]}d]')
