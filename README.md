@@ -18,7 +18,7 @@ Finally, [here](https://hackmd.io/1t0ACyplTDKSgo-a1jA7nQ) is the formulas' sheet
 |Players, mobs and armor stands|0.08|0.019999980926513672|0.0899999737739563|After|0|
 |Entities with slow falling|0.01|0.019999980926513672|0.0899999737739563|After|0|
 |Items, falling blocks and TNTs|0.04|0.02|0.02|After|1|
-|Minecarts|0.04|0.05|0.62|After|1|
+|Minecarts|0.04|0.05|0.05|After|1|
 |Boats|0.03999999910593033|0|0.10000002384185791|-|1|
 |Thrown eggs, snowballs and ender pearls|0.029999999329447746|0.009999990463256836|0.009999990463256836|Before|0|
 |Thrown potions|0.05000000074505806|0.009999990463256836|0.009999990463256836|Before|0|
