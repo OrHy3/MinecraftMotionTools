@@ -9,7 +9,7 @@ Another complication comes from what I, in the code, refer to as [acceleration d
 
 Acceleration drag works the following way:
 
-$\text{position}_{new}=\text{position}_{old}+\text{velocity}-k\cdot\text{acceleration}$
+$\text{position}\_{new}=\text{position}_{old}+\text{velocity}-k\cdot\text{acceleration}$
 
 Finally, [here](https://hackmd.io/1t0ACyplTDKSgo-a1jA7nQ) is the formulas' sheet I wrote down. Take in mind that a fair amount of them make use of [Lambert's W function](https://en.wikipedia.org/wiki/Lambert_W_function).
 # Entities' parameter table
