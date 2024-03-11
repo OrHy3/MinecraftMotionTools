@@ -27,8 +27,8 @@ Finally, [here](https://hackmd.io/1t0ACyplTDKSgo-a1jA7nQ) is the formulas' sheet
 |Thrown fishing bobbers|0.03|0.08|0.08|After|1|
 |Llama spit|0.05999999865889549|0.009999990463256836|0.009999990463256836|Before|0|
 |Fired arrows and thrown tridents|0.05000000074505806|0.009999990463256836|0.009999990463256836|Before|0|
-|Fireballs, wither skulls and dragon fireballs|0.1|0.050000011920928955|0.050000011920928955|After|-1|
-|Dangerous wither skulls|0.1|0.26999998092651367|0.26999998092651367|After|-1|
+|Fireballs, wither skulls and dragon fireballs|0.1|0.050000011920928955|0.050000011920928955|After|0|
+|Dangerous wither skulls|0.1|0.26999998092651367|0.26999998092651367|After|0|
 
 NOTE: For fireballs and alike, use negative velocity and position, since "opposite acceleration" [would be negative for them](https://minecraft.wiki/w/Entity#cite_ref-boom_5-0).
 # How to install?
