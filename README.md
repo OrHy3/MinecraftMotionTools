@@ -31,6 +31,28 @@ Finally, [here](https://hackmd.io/1t0ACyplTDKSgo-a1jA7nQ) is the formulas' sheet
 |Dangerous wither skulls|0.1|0.26999998092651367|0.26999998092651367|After|0|
 
 NOTE: For fireballs and alike, use negative velocity and position, since "opposite acceleration" [would be negative for them](https://minecraft.wiki/w/Entity#cite_ref-boom_5-0).
+# Function list
+v0: initial velocity<br>
+t: ticks passed<br>
+v: current velocity<br>
+p: current relative position<br>
+h: maximum height<br>
+a: acceleration<br>
+d: drag force<br>
+after: whether drag is applied after or before gravity acceleration<br>
+k: acceleration drag coefficient<br>
+|Name|Required arguments|Optional arguments|Brief description|
+|-|-|-|-|
+|v_from_t|v0, t|a, d, after|Retrieves velocity from an initial velocity and the time that has passed, in ticks.|
+|p_from_t|v0, t|a, d, after, k|Retrieves relative position from an initial velocity and the time that has passed, in ticks.|
+|max_height_tick_from_v0|v0|a, d, after, k|Retrieves the time in ticks the maximux relative height is reached.|
+|max_height_from_v0|v0|a, d, after, k|Retrieves the maximux relative height reached (using integer approximation of the tick).|
+|v0_from_max_height|h|a, d, after, k|Retrieves a tuple of up to 2 solutions, each representing a closed interval with lower and upper bounds.|
+|v0_from_v_t|v, t|a, d, after|Retrieves initial velocity from a pair of current velocity and time passed, in ticks.|
+|v0_from_p_t|p, t|a, d, after, k|Retrieves initial velocity from a pair of current relative position and time passed, in ticks.|
+|t_from_v0_v|v0, v|a, d, after|Retrieves the time passed (in ticks) since velocity was v0 to become v.|
+|t_from_v0_p|v0, p|a, d, after, k|Retrieves the time passed (in ticks) to reach the relative position specified.|
+|v0_t_from_v_p|v, p|a, d, after, k|Retrieves a pair of initial velocity and time passed (in ticks) to reach the state of current velocity/position specified.|
 # How to install?
 Install Python 3 and pip, then run
 ```
