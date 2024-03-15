@@ -53,7 +53,7 @@ def p_from_t(v0: float, t: float, a=0.04, d=0.02, after=True, k=1):
 
 def max_height_tick_from_v0(v0: float, a=0.04, d=0.02, after=True, k=1):
     '''
-    Retrieves the time in ticks the maximux relative height is reached.
+    Retrieves the time in ticks the maximum relative height is reached.
     Can be negative.
 
     Returns None if no solution can be found.
@@ -84,7 +84,7 @@ def max_height_tick_from_v0(v0: float, a=0.04, d=0.02, after=True, k=1):
 
 def max_height_from_v0(v0: float, a=0.04, d=0.02, after=True, k=1):
     '''
-    Retrieves the maximux relative height reached (using integer approximation of the tick).
+    Retrieves the maximum relative height reached (using integer approximation of the tick).
     Can be an height reached in a previous tick.
 
     If acceleration is 0 returns the approximate ending position.
