@@ -8,4 +8,4 @@ if t < 0:
     print('Time cannot be lower than 0!')
     exit()
 
-print(f'Current fireball\'s distance: {-mmt.p_from_t(-1, t, a=0.1, d=0.050000011920928955, k=-1)}')
+print(f'Current fireball\'s distance: {-mmt.p_from_t(-1, t, a=0.1, d=0.050000011920928955, k=0)}')
