@@ -31,7 +31,12 @@ Finally, [here](https://hackmd.io/1t0ACyplTDKSgo-a1jA7nQ) is the formulas' sheet
 |Dangerous wither skulls|0.1|0.26999998092651367|0.26999998092651367|After|0|
 |Wind charges|0.1|0|0|-|0|
 
-NOTE: For fireballs and alike, use negative velocity and position, since "opposite acceleration" [would be negative for them](https://minecraft.wiki/w/Entity#cite_ref-boom_5-0).
+NOTES:
+- For fireballs and alike, use negative velocity and position, since "opposite acceleration" [would be negative for them](https://minecraft.wiki/w/Entity#cite_ref-boom_5-0).
+- Players, mobs and armor stands whose OnGround property is set to 1 have an horizontal drag force of 0.45399993658065796.
+- The maximum general velocity value is 10. Any greater value is reset to 0.
+- Minecarts have a maximum horizontal velocity of 0.4. Any greater value is reset to that number.
+- Boats' horizontal position gets updated using next tick's velocity instead of the current one.
 # Function list
 v0: initial velocity<br>
 t: ticks passed<br>
