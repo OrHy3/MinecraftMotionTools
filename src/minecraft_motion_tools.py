@@ -338,7 +338,9 @@ def v0_t_from_v_p(v: float, p: float, a=0.04, d=0.02, after=True, k=1):
     if 1 + k * d == 0:
         return None
     arg = math.log(1 - d) * (v / a + 1 / d) / (1 + k * d) * (1 - d) ** (((v + p * d) / a + 1 / d) / (1 + k * d))
-    if arg >= 0:
+    if arg * math.e < -1:
+        return None
+    if arg * math.e == 1 or arg >= 0:
         v0 = a * (lambertw(arg).real * (1 + d) / math.log(1 - d) - 1 / d)
         return ((v0, (v0 - v - p * d) / a / (1 + k * d)),)
     else:
