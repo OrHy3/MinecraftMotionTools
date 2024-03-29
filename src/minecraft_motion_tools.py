@@ -138,7 +138,7 @@ def v0_from_max_height(h: float, a=0.04, d=0.02, after=True, k=1):
     solutions = v0_t_from_v_p(k * a, h, a, d, after, k)
     if solutions is None:
         return None
-    return (v0_from_p_t(h, math.ceil(sol[1]), a, d, after, k) for sol in solutions)
+    return tuple(v0_from_p_t(h, math.ceil(sol[1]), a, d, after, k) for sol in solutions)
 
 def v0_from_v_t(v: float, t: float, a=0.04, d=0.02, after=True):
     '''
