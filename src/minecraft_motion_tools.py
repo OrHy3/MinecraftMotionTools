@@ -112,10 +112,10 @@ def max_height_from_v0(v0: float, a=0.04, d=0.02, after=True, k=1):
 
 def v0_from_max_height(h: float, a=0.04, d=0.02, after=True, k=1):
     '''
-    Retrieves a tuple of up to 2 solutions, each representing a closed interval with lower and upper bounds.
+    Retrieves a tuple of up to 2 solutions, each one belonging to the possible arcs with the specified height.
 
-    The first tuple gives the approximate velocity after the maximum relative height specified has been reached, following the fall to position 0,
-    the second tuple gives the approximate velocity to reach the maximum relative height specified, yet to reach.
+    The first solution gives the approximate velocity after the maximum relative height specified has been reached, preceding the fall to position 0,
+    the second solution gives the approximate velocity to reach the maximum relative height specified, yet to reach.
 
     If the acceleration is 0 returns a single value.
     Returns None if no solution can be found.
@@ -134,35 +134,11 @@ def v0_from_max_height(h: float, a=0.04, d=0.02, after=True, k=1):
     if a == 0:
         if d == 0:
             return None
-        return h * d
-    if d == 0:
-        return (
-            ((k * 2 - 1 - (h * 8 / a + 1) ** 0.5) * a / 2, (k * 2 - 1 - (h * 8 / a) ** 0.5) * a / 2),
-            ((k * 2 - 1 + (h * 8 / a) ** 0.5) * a / 2, (k * 2 - 1 + (h * 8 / a + 1) ** 0.5) * a / 2)
-        )
-    if after:
-        a *= 1 - d
-        k /= 1 - d
-    arg = a * (1 + k * d)
-    if arg == 0:
+        return (h * d,)
+    solutions = v0_t_from_v_p(k * a, h, a, d, after, k)
+    if solutions is None:
         return None
-    v0 = [
-        (
-            a * ((1 + k * d) * lambertw(-(1 - d) ** (h * d / arg - 1 / math.log(1 - d))).real / math.log(1 - d) - 1 / d),
-            a * ((1 + k * d) * lambertw(math.log(1 - d) * (1 - d) ** (h * d / arg + 1 / d) / d).real / math.log(1 - d) - 1 / d)
-        ),
-        (
-            a * ((1 + k * d) * lambertw(-(1 - d) ** (h * d / arg - 1 / math.log(1 - d)), -1).real / math.log(1 - d) - 1 / d),
-            a * ((1 + k * d) * lambertw(math.log(1 - d) * (1 - d) ** (h * d / arg + 1 / d) / d, -1).real / math.log(1 - d) - 1 / d)
-        )
-    ]
-    if max_height_tick_from_v0(v0[1][0], a, d, False, k) is None or max_height_tick_from_v0(v0[1][1], a, d, False, k) is None:
-        v0.pop(1)
-    if max_height_tick_from_v0(v0[0][0], a, d, False, k) is None or max_height_tick_from_v0(v0[0][1], a, d, False, k) is None:
-        v0.pop(0)
-    if len(v0) > 0:
-        return tuple(v0)
-    return None
+    return (v0_from_p_t(h, math.ceil(sol[1]), a, d, after, k) for sol in solutions)
 
 def v0_from_v_t(v: float, t: float, a=0.04, d=0.02, after=True):
     '''

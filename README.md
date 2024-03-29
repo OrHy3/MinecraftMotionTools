@@ -53,7 +53,7 @@ k: acceleration drag coefficient<br>
 |p_from_t|v0, t|a, d, after, k|Retrieves relative position from an initial velocity and the time that has passed, in ticks.|
 |max_height_tick_from_v0|v0|a, d, after, k|Retrieves the time in ticks the maximum relative height is reached.|
 |max_height_from_v0|v0|a, d, after, k|Retrieves the maximum relative height reached (using integer approximation of the tick).|
-|v0_from_max_height|h|a, d, after, k|Retrieves a tuple of up to 2 solutions, each representing a closed interval with lower and upper bounds.|
+|v0_from_max_height|h|a, d, after, k|Retrieves a tuple of up to 2 solutions, each one belonging to the possible arcs with the specified height.|
 |v0_from_v_t|v, t|a, d, after|Retrieves initial velocity from a pair of current velocity and time passed, in ticks.|
 |v0_from_p_t|p, t|a, d, after, k|Retrieves initial velocity from a pair of current relative position and time passed, in ticks.|
 |t_from_v0_v|v0, v|a, d, after|Retrieves the time passed (in ticks) since velocity was v0 to become v.|
