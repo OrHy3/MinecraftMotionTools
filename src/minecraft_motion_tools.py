@@ -1,14 +1,13 @@
 from scipy.special import lambertw
 import math
 
-def check_values(a, d):
+def check_values(d):
     '''
-    Checks wheter acceleration and drag parameters are in the permitted ranges (a >= 0, 0 <= d < 1).
+    Checks whether drag parameter is in the permitted range (0 <= d < 1).
 
-    a: acceleration
     d: drag force
     '''
-    if d < 0 or d >= 1 or a < 0:
+    if d < 0 or d >= 1:
         raise ValueError('Inappropriate parameters (see help(check_values))')
 
 def v_from_t(v0: float, t: float, a=0.04, d=0.02, after=True):
@@ -23,7 +22,7 @@ def v_from_t(v0: float, t: float, a=0.04, d=0.02, after=True):
     d: drag force
     after: whether drag is applied after or before gravity acceleration
     '''
-    check_values(a, d)
+    check_values(d)
     if d == 0:
         return v0 - a * t
     if after:
@@ -43,7 +42,7 @@ def p_from_t(v0: float, t: float, a=0.04, d=0.02, after=True, k=1):
     after: whether drag is applied after or before gravity acceleration
     k: acceleration drag coefficient
     '''
-    check_values(a, d)
+    check_values(d)
     if d == 0:
         return (v0 + (0.5 - 0.5 * t - k) * a) * t
     if after:
@@ -66,7 +65,7 @@ def max_height_tick_from_v0(v0: float, a=0.04, d=0.02, after=True, k=1):
     after: whether drag is applied after or before gravity acceleration
     k: acceleration drag coefficient
     '''
-    check_values(a, d)
+    check_values(d)
     if d == 0:
         if a == 0:
             return None
@@ -100,7 +99,7 @@ def max_height_from_v0(v0: float, a=0.04, d=0.02, after=True, k=1):
     after: whether drag is applied after or before gravity acceleration
     k: acceleration drag coefficient
     '''
-    check_values(a, d)
+    check_values(d)
     if a == 0:
         if d == 0:
             return None
@@ -122,15 +121,13 @@ def v0_from_max_height(h: float, a=0.04, d=0.02, after=True, k=1):
 
     Default parameters refer to Falling Blocks.
 
-    h: maximum height required, positive
+    h: maximum height required
     a: acceleration
     d: drag force
     after: whether drag is applied after or before gravity acceleration
     k: acceleration drag coefficient
     '''
-    check_values(a, d)
-    if h <= 0:
-        raise ValueError('Maximum height must be greater than 0')
+    check_values(d)
     if a == 0:
         if d == 0:
             return None
@@ -156,7 +153,7 @@ def v0_from_v_t(v: float, t: float, a=0.04, d=0.02, after=True):
     d: drag force
     after: whether drag is applied after or before gravity acceleration
     '''
-    check_values(a, d)
+    check_values(d)
     if d == 0:
         return v + t * a
     if after:
@@ -178,7 +175,7 @@ def v0_from_p_t(p: float, t: float, a=0.04, d=0.02, after=True, k=1):
     after: whether drag is applied after or before gravity acceleration
     k: acceleration drag coefficient
     '''
-    check_values(a, d)
+    check_values(d)
     if t == 0:
         return None
     if d == 0:
@@ -202,7 +199,7 @@ def t_from_v0_v(v0: float, v: float, a=0.04, d=0.02, after=True):
     d: drag force
     after: whether drag is applied after or before gravity acceleration
     '''
-    check_values(a, d)
+    check_values(d)
     if d == 0:
         if a == 0:
             return None
@@ -232,7 +229,7 @@ def t_from_v0_p(v0: float, p: float, a=0.04, d=0.02, after=True, k=1):
     after: whether drag is applied after or before gravity acceleration
     k: acceleration drag coefficient
     '''
-    check_values(a, d)
+    check_values(d)
     if d == 0:
         if a == 0:
             return None
@@ -282,7 +279,7 @@ def v0_t_from_v_p(v: float, p: float, a=0.04, d=0.02, after=True, k=1):
     after: whether drag is applied after or before gravity acceleration
     k: acceleration drag coefficient
     '''
-    check_values(a, d)
+    check_values(d)
     if d == 0:
         if a == 0:
             if v == 0:

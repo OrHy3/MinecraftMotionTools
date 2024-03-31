@@ -64,6 +64,10 @@ Install Python 3 and pip, then run
 ```
 pip install MinecraftMotionTools
 ```
+To update the package to its latest version run
+```
+pip install --upgrade MinecraftMotionTools
+```
 # How to use?
 Check some of the code examples for common uses.
 
