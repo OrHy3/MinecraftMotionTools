@@ -289,15 +289,15 @@ def v0_t_from_v_p(v: float, p: float, a=0.04, d=0.02, after=True, k=1):
         if arg < 0:
             return None
         if arg == 0:
-            t = k - 0.5 - v / a
-            return ((v + t * a, t),)
-        t = (
-            k - 0.5 - (v + arg ** 0.5) / a,
-            k - 0.5 - (v - arg ** 0.5) / a
+            v0 = (k - 0.5) * a
+            return ((v0, (v0 - v) / a),)
+        v0 = (
+            (k - 0.5) * a - arg ** 0.5,
+            (k - 0.5) * a + arg ** 0.5
         )
         return (
-            (v + t[0] * a, t[0]),
-            (v + t[1] * a, t[1])
+            (v0[0], (v0[0] - v) / a),
+            (v0[1], (v0[1] - v) / a)
         )
     if a == 0:
         if v == 0:
