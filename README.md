@@ -32,7 +32,7 @@ Finally, [here](https://hackmd.io/1t0ACyplTDKSgo-a1jA7nQ) is the formulas' sheet
 |Wind charges|0.1|0|0|-|0|
 
 NOTES:
-- For fireballs and alike, use negative velocity and position, since "opposite acceleration" [would be negative for them](https://minecraft.wiki/w/Entity#cite_ref-boom_5-0).
+- For fireballs and alike, use negative acceleration (see [here](https://minecraft.wiki/w/Entity#cite_ref-boom_5-0) why).
 - Players, mobs and armor stands whose OnGround property is set to 1 have an horizontal drag force of 0.45399993658065796.
 - The maximum general velocity value is 10. Any greater value is reset to 0.
 - Minecarts have a maximum horizontal velocity of 0.4. Any greater value is reset to that number.
