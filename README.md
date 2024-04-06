@@ -12,6 +12,8 @@ Acceleration drag works the following way:
 $\text{position}\_{new}=\text{position}_{old}+\text{velocity}-k\cdot\text{acceleration}$
 
 Finally, [here](https://hackmd.io/1t0ACyplTDKSgo-a1jA7nQ) is the formulas' sheet I wrote down. Take in mind that a fair amount of them make use of [Lambert's W function](https://en.wikipedia.org/wiki/Lambert_W_function).
+
+For the acceleration's formulas refer to [this sheet](https://hackmd.io/vvFAdzekSn6R7vc9Mw8lxg?view) instead.
 # Entities' parameter table
 |Type|Acceleration|Vertical drag|Horizontal drag|Applies drag|k coefficient|
 |-|-|-|-|-|-|
@@ -35,6 +37,7 @@ NOTES:
 - For fireballs and alike, use negative acceleration (see [here](https://minecraft.wiki/w/Entity#cite_ref-boom_5-0) why).
 - Players, mobs and armor stands whose OnGround property is set to 1 have an horizontal drag force of 0.45399993658065796.
 - The maximum general velocity value is 10. Any greater value is reset to 0.
+- Even though 10 is the maximum velocity that can be set, entities with 0 drag force can gain infinite velocity due to acceleration.
 - Minecarts have a maximum horizontal velocity of 0.4. Any greater value is reset to that number.
 - Boats' horizontal position gets updated using next tick's velocity instead of the current one.
 # Function list
@@ -47,6 +50,8 @@ a: acceleration<br>
 d: drag force<br>
 after: whether drag is applied after or before gravity acceleration<br>
 k: acceleration drag coefficient<br>
+
+Default parameters are set to Falling Blocks.<br>
 |Name|Required arguments|Optional arguments|Brief description|
 |-|-|-|-|
 |v_from_t|v0, t|a, d, after|Retrieves velocity from an initial velocity and the time that has passed, in ticks.|
@@ -59,6 +64,20 @@ k: acceleration drag coefficient<br>
 |t_from_v0_v|v0, v|a, d, after|Retrieves the time passed (in ticks) since velocity was v0 to become v.|
 |t_from_v0_p|v0, p|a, d, after, k|Retrieves the time passed (in ticks) to reach the relative position specified.|
 |v0_t_from_v_p|v, p|a, d, after, k|Retrieves a pair of initial velocity and time passed (in ticks) to reach the state of current velocity/position specified.|
+### Acceleration related functions
+These functions retrieve the acceleration from 2 state pairs of the wanted trajectory.<br>
+Functions involving a velocity/position state pair are not guaranteed to retrieve all the solutions, though that should be a limit case.<br>
+If drag is set to 0, all the functions will use safe algorithms, meaning iterative approximation algorithms won't be used.
+
+Default parameters are set to Fireballs.<br>
+|Name|Required arguments|Optional arguments|Brief description|
+|-|-|-|-|
+|a_from_double_v_t|(v1, t1), (v2, t2)|d, after|Retrieves acceleration from 2 states of velocity/time.|
+|a_from_double_p_t|(p1, t1), (p2, t2)|d, after, k|Retrieves acceleration from 2 states of position/time.|
+|a_from_double_v_p|(v1, p1), (v2, p2)|d, after, k|Attempts to retrieve the acceleration from 2 states of velocity/position.|
+|a_from_v_t_p_t|(v1, t1), (p2, t2)|d, after, k|Retrieves acceleration from 2 states of velocity/time and position/time.|
+|a_from_v_t_v_p|(v1, t1), (v2, p2)|d, after, k|Attempts to retrieve the acceleration from 2 states of velocity/time and velocity/position.|
+|a_from_p_t_v_p|(p1, t1), (v2, p2)|d, after, k|Attempts to retrieve the acceleration from 2 states of position/time and velocity/position.|
 # How to install?
 Install Python 3 and pip, then run
 ```
@@ -69,6 +88,4 @@ To update the package to its latest version run
 pip install --upgrade MinecraftMotionTools
 ```
 # How to use?
-Check some of the code examples for common uses.
-
-Functions' parameters are set to Falling Blocks by default.
+Check some of the code examples for common use cases.
