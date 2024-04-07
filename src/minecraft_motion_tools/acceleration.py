@@ -70,7 +70,7 @@ def solve_equation(a, b, c, k=1):
     if k <= 0:
         return []
     if b - a * c == 0:
-        if a <= 0:
+        if a <= 0 or a == 1:
             return []
         x = math.log(k, a)
         if x == -c:
