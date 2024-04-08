@@ -254,7 +254,7 @@ def a_from_double_v_p(first: tuple, second: tuple, d=0.050000011920928955, after
     if 1 + k * d == 0:
         return None
     a = solve_equation(1, v1 * d, v2 * d, (1 - d) ** ((v2 - v1 + (p2 - p1) * d) / (1 + k * d)))
-    for i in range(len(a) - 1, -1):
+    for i in range(len(a) - 1, -1, -1):
         if math.log(1 - d) * (v1 / a[i] + 1 / d) / (1 + k * d) * (1 - d) ** (((v1 + p1 * d) / a[i] + 1 / d) / (1 + k * d)) * math.e < -1 or math.log(1 - d) * (v2 / a[i] + 1 / d) / (1 + k * d) * (1 - d) ** (((v2 + p2 * d) / a[i] + 1 / d) / (1 + k * d)) * math.e < -1:
             a.pop(i)
     if a == []:
@@ -329,7 +329,7 @@ def a_from_v_t_v_p(first: tuple, second: tuple, d=0.050000011920928955, after=Tr
         return None
     gamma = (1 - d) ** (((1 - d) ** -t1 - 1) / d / (1 + k * d) - t1)
     a = solve_equation(gamma, gamma * v1 * d, v2 * d, (1 - d) ** ((v2 - v1 * (1 - d) ** -t1 + p2 * d) / (1 + k * d)))
-    for i in range(len(a) - 1, -1):
+    for i in range(len(a) - 1, -1, -1):
         if math.log(1 - d) * (v2 / a[i] + 1 / d) / (1 + k * d) * (1 - d) ** (((v2 + p2 * d) / a[i] + 1 / d) / (1 + k * d)) * math.e < -1:
             a.pop(i)
     if a == []:
@@ -376,7 +376,7 @@ def a_from_p_t_v_p(first: tuple, second: tuple, d=0.050000011920928955, after=Tr
         return None
     gamma = (1 - d) ** (t1 / arg - 1 / d / (1 + k * d)) * d / arg
     a = solve_equation(gamma * (1 + k * d) * t1, gamma * p1 * d, v2 * d, (1 - d) ** ((v2 + (p2 - p1 / arg) * d) / (1 + k * d)))
-    for i in range(len(a) - 1, -1):
+    for i in range(len(a) - 1, -1, -1):
         if math.log(1 - d) * (v2 / a[i] + 1 / d) / (1 + k * d) * (1 - d) ** (((v2 + p2 * d) / a[i] + 1 / d) / (1 + k * d)) * math.e < -1:
             a.pop(i)
     if a == []:
