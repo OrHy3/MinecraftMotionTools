@@ -17,25 +17,25 @@ For the acceleration's formulas refer to [this sheet](https://hackmd.io/vvFAdzek
 # Entities' parameter table
 |Type|Acceleration|Vertical drag|Horizontal drag|Applies drag|k coefficient|
 |-|-|-|-|-|-|
-|Players, mobs and armor stands|0.08|0.019999980926513672|0.0899999737739563|After|0|
-|Entities with slow falling|0.01|0.019999980926513672|0.0899999737739563|After|0|
+|Players, mobs and armor stands|0.08|0.02|0.09|After|0|
+|Entities with slow falling|0.01|0.02|0.09|After|0|
 |Items, falling blocks and TNTs|0.04|0.02|0.02|After|1|
 |Minecarts|0.04|0.05|0.05|After|1|
-|Boats|0.03999999910593033|0|0.10000002384185791|-|1|
-|Thrown eggs, snowballs and ender pearls|0.029999999329447746|0.009999990463256836|0.009999990463256836|Before|0|
-|Thrown potions|0.05000000074505806|0.009999990463256836|0.009999990463256836|Before|0|
-|Thrown experience bottles|0.07000000029802322|0.009999990463256836|0.009999990463256836|Before|0|
-|Experience orbs|0.03|0.02|0.019999980926513672|After|1|
+|Boats|0.04|0|0.10|-|1|
+|Thrown eggs, snowballs and ender pearls|0.03|0.01|0.01|Before|0|
+|Thrown potions|0.05|0.01|0.01|Before|0|
+|Thrown experience bottles|0.07|0.01|0.01|Before|0|
+|Experience orbs|0.03|0.02|0.02|After|1|
 |Thrown fishing bobbers|0.03|0.08|0.08|After|1|
-|Llama spit|0.05999999865889549|0.009999990463256836|0.009999990463256836|Before|0|
-|Fired arrows and thrown tridents|0.05000000074505806|0.009999990463256836|0.009999990463256836|Before|0|
-|Fireballs, wither skulls and dragon fireballs|0.1|0.050000011920928955|0.050000011920928955|After|0|
-|Dangerous wither skulls|0.1|0.26999998092651367|0.26999998092651367|After|0|
-|Wind charges|0.1|0|0|-|0|
+|Llama spit|0.06|0.01|0.01|Before|0|
+|Fired arrows and thrown tridents|0.05|0.01|0.01|Before|0|
+|Fireballs, wither skulls and dragon fireballs|0.10|0.05|0.05|After|0|
+|Dangerous wither skulls|0.10|0.27|0.27|After|0|
+|Wind charges|0.10|0|0|-|0|
 
 NOTES:
 - For fireballs and alike, use negative acceleration (see [here](https://minecraft.wiki/w/Entity#cite_ref-boom_5-0) why).
-- Players, mobs and armor stands whose OnGround property is set to 1 have an horizontal drag force of 0.45399993658065796.
+- Players, mobs and armor stands whose OnGround property is set to 1 have an horizontal drag force of 0.454.
 - The maximum general velocity value is 10. Any greater value is reset to 0.
 - Even though 10 is the maximum velocity that can be set, entities with 0 drag force can gain infinite velocity due to acceleration.
 - Minecarts have a maximum horizontal velocity of 0.4. Any greater value is reset to that number.
