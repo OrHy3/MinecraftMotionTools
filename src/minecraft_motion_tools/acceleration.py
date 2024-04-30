@@ -159,7 +159,7 @@ def solve_quadratic(a, b, c):
         solutions.sort()
     return solutions
 
-def a_from_double_v_t(first: tuple, second: tuple, d=0.050000011920928955, after=True):
+def a_from_double_v_t(first: tuple, second: tuple, d=0.05, after=True):
     '''
     Retrieves acceleration from 2 states of velocity/time.
 
@@ -188,7 +188,7 @@ def a_from_double_v_t(first: tuple, second: tuple, d=0.050000011920928955, after
         a /= 1 - d
     return a
 
-def a_from_double_p_t(first: tuple, second: tuple, d=0.050000011920928955, after=True, k=0):
+def a_from_double_p_t(first: tuple, second: tuple, d=0.05, after=True, k=0):
     '''
     Retrieves acceleration from 2 states of position/time.
 
@@ -222,7 +222,7 @@ def a_from_double_p_t(first: tuple, second: tuple, d=0.050000011920928955, after
         a /= 1 - d
     return a
 
-def a_from_double_v_p(first: tuple, second: tuple, d=0.050000011920928955, after=True, k=0):
+def a_from_double_v_p(first: tuple, second: tuple, d=0.05, after=True, k=0):
     '''
     Attempts to retrieve the acceleration from 2 states of velocity/position.
     If drag is set to 0, a safe algorithm will be used.
@@ -263,7 +263,7 @@ def a_from_double_v_p(first: tuple, second: tuple, d=0.050000011920928955, after
         a = [sol / (1 - d) for sol in a]
     return tuple(a)
 
-def a_from_v_t_p_t(first: tuple, second: tuple, d=0.050000011920928955, after=True, k=0):
+def a_from_v_t_p_t(first: tuple, second: tuple, d=0.05, after=True, k=0):
     '''
     Retrieves acceleration from 2 states of velocity/time and position/time.
 
@@ -296,7 +296,7 @@ def a_from_v_t_p_t(first: tuple, second: tuple, d=0.050000011920928955, after=Tr
         a /= 1 - d
     return a
 
-def a_from_v_t_v_p(first: tuple, second: tuple, d=0.050000011920928955, after=True, k=0):
+def a_from_v_t_v_p(first: tuple, second: tuple, d=0.05, after=True, k=0):
     '''
     Attempts to retrieve the acceleration from 2 states of velocity/time and velocity/position.
     If drag is set to 0, a safe algorithm will be used.
@@ -338,7 +338,7 @@ def a_from_v_t_v_p(first: tuple, second: tuple, d=0.050000011920928955, after=Tr
         a = [sol / (1 - d) for sol in a]
     return tuple(a)
 
-def a_from_p_t_v_p(first: tuple, second: tuple, d=0.050000011920928955, after=True, k=0):
+def a_from_p_t_v_p(first: tuple, second: tuple, d=0.05, after=True, k=0):
     '''
     Attempts to retrieve the acceleration from 2 states of position/time and velocity/position.
     If drag is set to 0, a safe algorithm will be used.
