@@ -75,7 +75,7 @@ def solve_equation(a, b, c, k=1):
         x = math.log(k, a)
         if x == -c:
             return []
-        return x
+        return [x]
     
     phi1_zeros = phi1z(a, b, c)
     delta1_zeros = set()
