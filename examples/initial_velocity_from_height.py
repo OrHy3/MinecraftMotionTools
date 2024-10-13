@@ -8,5 +8,5 @@ if h <= 0:
     print('Maximum height must be greater than 0!')
     exit()
 
-solutions = mmt.v0_from_max_height(h, a=0.05000000074505806, d=0.009999990463256836, after=False, k=0)
+solutions = mmt.v0_from_max_height(h, a=0.05, d=0.01, after=False, k=0)
 print(f'Y axis\' velocity is {solutions[1]}')
