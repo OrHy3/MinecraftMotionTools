@@ -39,7 +39,7 @@ NOTES:
 - The maximum general velocity value is 10. Any greater value is reset to 0.
 - Even though 10 is the maximum velocity that can be set, entities with 0 drag force can gain infinite velocity due to acceleration.
 - Minecarts have a maximum horizontal velocity of 0.4. Any greater value is reset to that number.
-- Boats' horizontal position gets updated using next tick's velocity instead of the current one.
+- Boats (and since 1.21.2, fireball-like projectiles), are the only known entities to update the velocity before the position.
 # Function list
 v0: initial velocity<br>
 t: ticks passed<br>
