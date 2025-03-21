@@ -34,12 +34,12 @@ For the acceleration's formulas refer to [this sheet](https://hackmd.io/vvFAdzek
 |Wind charges|0.10|0|0|-|0|
 
 NOTES:
-- For fireballs and alike, use negative acceleration (see [here](https://minecraft.wiki/w/Entity#cite_ref-boom_5-0) why).
-- Players, mobs and armor stands whose OnGround property is set to 1 have an horizontal drag force of 0.454.
+- For fireballs and alike, use negative acceleration (instead of being affected from gravity, fireballs accelerate on their own).
+- Players, mobs and armor stands whose OnGround property is set to 1 have an horizontal drag force whose value depends on the slipperiness of the standing block. On most blocks, drag is 0.454 by default.
 - The maximum general velocity value is 10. Any greater value is reset to 0.
-- Even though 10 is the maximum velocity that can be set, entities with 0 drag force can gain infinite velocity due to acceleration.
+- Even though 10 is the maximum velocity that can be set, entities with 0 drag force can gain infinite velocity due to acceleration (e.g. wind charges).
 - Minecarts have a maximum horizontal velocity of 0.4. Any greater value is reset to that number.
-- Boats (and since 1.21.2, fireball-like projectiles), are the only known entities to update the velocity before the position.
+- Boats (and since 1.21.2, fireball-like projectiles), are the only known entities to update the velocity before the position (for boats this happens on the horizontal axis only).
 # Function list
 v0: initial velocity<br>
 t: ticks passed<br>
