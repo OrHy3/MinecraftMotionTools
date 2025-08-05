@@ -5,7 +5,7 @@ Minecraft updates velocity in a different way from real-physics objects, plus it
 
 Minecraft's Wiki got [some information](https://minecraft.wiki/w/Entity#Motion_of_entities) about how it works, but [here](https://hackmd.io/ySiQhr_SSUatNc6qAkbFcw) is the reasoning behind the velocity equations.
 
-Another complication comes from what I, in the code, refer to as [acceleration drag](https://minecraft.wiki/w/Entity#cite_note-gravityBefore-4), which initially required forking the formulas for every different case (see [old sheet](https://hackmd.io/V9oMODQbT5mBA-o4OM76pA)), before I decided to generalize the formulas, introducing the coefficient `k`.
+Another complication comes from what I, in the code, refer to as [acceleration drag](https://minecraft.wiki/w/Entity?oldid=3063842#cite_note-gravityBefore-5), which initially required forking the formulas for every different case (see [old sheet](https://hackmd.io/V9oMODQbT5mBA-o4OM76pA)), before I decided to generalize the formulas, introducing the coefficient `k`.
 
 Acceleration drag works the following way:
 
@@ -88,4 +88,5 @@ To update the package to its latest version run
 pip install --upgrade MinecraftMotionTools
 ```
 # How to use?
+
 Check some of the code examples for common use cases.
