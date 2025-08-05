@@ -39,7 +39,7 @@ NOTES:
 - The maximum general velocity value is 10. Any greater value is reset to 0.
 - Even though 10 is the maximum velocity that can be set, entities with 0 drag force can gain infinite velocity due to acceleration (e.g. wind charges).
 - Minecarts have a maximum horizontal velocity of 0.4. Any greater value is reset to that number.
-- Boats (and since 1.21.2, fireball-like projectiles), are the only known entities to update the velocity before the position (for boats this happens on the horizontal axis only).
+- Boats (and since 1.21.2, throwables and fireball-like projectiles), are the only known entities to update the velocity before the position (for boats this happens on the horizontal axis only).
 # Function list
 v0: initial velocity<br>
 t: ticks passed<br>
@@ -90,3 +90,4 @@ pip install --upgrade MinecraftMotionTools
 # How to use?
 
 Check some of the code examples for common use cases.
+
