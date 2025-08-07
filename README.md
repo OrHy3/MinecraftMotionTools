@@ -11,6 +11,8 @@ Acceleration drag works the following way:
 
 $\text{position}\_{new}=\text{position}_{old}+\text{velocity}-k\cdot\text{acceleration}$
 
+Having just 0 and 1 values, this turned out to simply swap the position updating order from P-A-D (position-acceleration-drag) to A-P-D. Still, I keep it this way to simplify the code and for flexibility, instead of having 4 different order cases (2 I didn't include can be solved by updating the velocity by 1 tick and considering that as initial velocity accordingly).
+
 Finally, [here](https://hackmd.io/1t0ACyplTDKSgo-a1jA7nQ) is the formulas' sheet I wrote down. Take in mind that a fair amount of them make use of [Lambert's W function](https://en.wikipedia.org/wiki/Lambert_W_function).
 
 For the acceleration's formulas refer to [this sheet](https://hackmd.io/vvFAdzekSn6R7vc9Mw8lxg?view) instead.
@@ -21,7 +23,7 @@ For the acceleration's formulas refer to [this sheet](https://hackmd.io/vvFAdzek
 |Entities with slow falling|0.01|0.02|0.09|After|0|
 |Items, falling blocks and TNTs|0.04|0.02|0.02|After|1|
 |Minecarts|0.04|0.05|0.05|After|1|
-|Boats|0.04|0|0.10|-|1|
+|Boats|0.04|0|0.10|-|-|
 |Thrown eggs, snowballs and ender pearls|0.03|0.01|0.01|Before|0|
 |Thrown potions|0.05|0.01|0.01|Before|0|
 |Thrown experience bottles|0.07|0.01|0.01|Before|0|
@@ -31,7 +33,7 @@ For the acceleration's formulas refer to [this sheet](https://hackmd.io/vvFAdzek
 |Fired arrows and thrown tridents|0.05|0.01|0.01|Before|0|
 |Fireballs, wither skulls and dragon fireballs|0.10|0.05|0.05|After|0|
 |Dangerous wither skulls|0.10|0.27|0.27|After|0|
-|Wind charges|0.10|0|0|-|0|
+|Wind charges|0.10|0|0|-|-|
 
 NOTES:
 - For fireballs and alike, use negative acceleration (instead of being affected from gravity, fireballs accelerate on their own).
@@ -39,7 +41,7 @@ NOTES:
 - The maximum general velocity value is 10. Any greater value is reset to 0.
 - Even though 10 is the maximum velocity that can be set, entities with 0 drag force can gain infinite velocity due to acceleration (e.g. wind charges).
 - Minecarts have a maximum horizontal velocity of 0.4. Any greater value is reset to that number.
-- Boats (and since 1.21.2, throwables and fireball-like projectiles), are the only known entities to update the velocity before the position (for boats this happens on the horizontal axis only).
+- Boats (and since 1.21.2, throwables and fireball-like projectiles), are the only known entities to update the velocity before the position.
 # Function list
 v0: initial velocity<br>
 t: ticks passed<br>
@@ -90,4 +92,5 @@ pip install --upgrade MinecraftMotionTools
 # How to use?
 
 Check some of the code examples for common use cases.
+
 
