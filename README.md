@@ -5,7 +5,7 @@ Minecraft updates velocity in a different way from real-physics objects, plus it
 
 Minecraft's Wiki got [some information](https://minecraft.wiki/w/Entity#Motion_of_entities) about how it works, but [here](https://hackmd.io/ySiQhr_SSUatNc6qAkbFcw) is the reasoning behind the velocity equations.
 
-Another complication comes from what I, in the code, refer to as [acceleration drag](https://minecraft.wiki/w/Entity?oldid=3063842#cite_note-gravityBefore-5), which initially required forking the formulas for every different case (see [old sheet](https://hackmd.io/V9oMODQbT5mBA-o4OM76pA)), before I decided to generalize the formulas, introducing the coefficient `k`.
+Another complication comes from what I, in the code, refer to as [acceleration drag](https://minecraft.wiki/w/Entity?oldid=3063842#cite_note-gravityBefore-5), which initially required forking the formulae for every different case (see [old sheet](https://hackmd.io/V9oMODQbT5mBA-o4OM76pA)), before I decided to generalize the formulae, introducing the coefficient `k`.
 
 Acceleration drag works the following way:
 
@@ -13,9 +13,9 @@ $\text{position}\_{new}=\text{position}_{old}+\text{velocity}-k\cdot\text{accele
 
 Having just 0 and 1 values, this turned out to simply swap the position updating order from P-A-D (position-acceleration-drag) to A-P-D. Still, I keep it this way to simplify the code and for flexibility, instead of having 4 different order cases (2 I didn't include can be solved by updating the velocity by 1 tick and considering that as initial velocity accordingly).
 
-Finally, [here](https://hackmd.io/1t0ACyplTDKSgo-a1jA7nQ) is the formulas' sheet I wrote down. Take in mind that a fair amount of them make use of [Lambert's W function](https://en.wikipedia.org/wiki/Lambert_W_function).
+Finally, [here](https://hackmd.io/1t0ACyplTDKSgo-a1jA7nQ) is the formulae' sheet I wrote down. Take in mind that a fair amount of them make use of [Lambert's W function](https://en.wikipedia.org/wiki/Lambert_W_function).
 
-For the acceleration's formulas refer to [this sheet](https://hackmd.io/vvFAdzekSn6R7vc9Mw8lxg?view) instead.
+For the acceleration's formulae refer to [this sheet](https://hackmd.io/vvFAdzekSn6R7vc9Mw8lxg?view) instead.
 # Entities' parameter table
 |Type|Acceleration|Vertical drag|Horizontal drag|Applies drag|k coefficient|
 |-|-|-|-|-|-|
